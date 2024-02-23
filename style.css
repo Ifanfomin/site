@@ -4,7 +4,7 @@ body {
 }
 
 .my_telegram_github {
-    font-family: "Montserrat", sans-serif;
+    font-family: sans-serif;
     font-size: 2em;
     font-weight: 500;
 
@@ -31,8 +31,4 @@ body {
     display: flex;
     min-height: 100vh;
     background-color: rgb(0, 0, 0);
-    /* background-image: url("img/gray_bg.jpg"); */
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-  }
+}
