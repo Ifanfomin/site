@@ -9,9 +9,9 @@ var music_deque = {
 
 function next_track() {
     var track = document.getElementById("pleer").src;
+    alert(track);
     track = track.slice(track.lastIndexOf("/") + 1);
     track = track.replaceAll("%20", " ");
-    alert(track);
     var new_track = "audio/" + music_deque[track];
     pleer.setAttribute("src", new_track);
     audio.load();
