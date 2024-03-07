@@ -8,6 +8,8 @@ var music_deque = {
 };
 
 function next_track() {
+    var audio = document.getElementById("audio");
+    var pleer = document.getElementById("pleer");
     var track = document.getElementById("pleer").src;
     alert(track);
     track = track.slice(track.lastIndexOf("/") + 1);
