@@ -70,11 +70,6 @@ function set_album(album_name) {
     album = album_name;
     album_tracks = albums[album];
 
-    var audio = document.getElementById("audio");
-    var pleer = document.getElementById("pleer");
-
-    set_track(album_tracks[0], false);
-
     var tracks_header = document.getElementById("tracks");
     while (tracks_header.firstChild) {
         tracks_header.removeChild(tracks_header.firstChild);
