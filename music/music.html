@@ -8,20 +8,38 @@
 
 </head>
 <body>
-    <header class="header">
-        <p class="pleer">
-            <a href="#" onclick="set_track('I Loved Another Woman.mp3')">[I Loved Another Woman]</a>
-            <a href="#" onclick="set_track('Only You.mp3')">[Only You]</a>
-            <a href="#" onclick="set_track('Blood And Rockets.mp3')">[Blood And Rockets]</a>
-            <a href="#" onclick="set_track('Сатана.mp3')">[Сатана]</a>
-            <a href="#" onclick="set_track('Aria Math (Phonk).mp3')">[Aria Math Phonk]</a>
-            <a href="#" onclick="set_track('Robots Outro.mp3')">[Robots Outro]</a>
-            <br><br>
-            <audio id="audio" onended="next_track()" controls>
-                <source src="audio/I Loved Another Woman.mp3" type="audio/mpeg" id="pleer">
-            </audio>
-        </p>
-    </header>
+    <div class="block-left">
+        <audio id="audio" onended="next_track()" class="pleer" controls>
+            <source src="audio/something/I Loved Another Woman.mp3" type="audio/mpeg" id="pleer">
+        </audio>
+    </div>
+
+    <div class="block-center">
+        <header class="tracks" id="tracks">
+            <h1>Tracks</h1>
+            <a href="#" onclick="set_track('I Loved Another Woman.mp3', true)">[I Loved Another Woman]</a>
+            <br>
+            <a href="#" onclick="set_track('Only You.mp3', true)">[Only You]</a>
+            <br>
+            <a href="#" onclick="set_track('Blood And Rockets.mp3', true)">[Blood And Rockets]</a>
+            <br>
+            <a href="#" onclick="set_track('Satana.mp3', true)">[Сатана]</a>
+            <br>
+            <a href="#" onclick="set_track('Aria Math (Phonk).mp3', true)">[Aria Math Phonk]</a>
+            <br>
+            <a href="#" onclick="set_track('Robots Outro.mp3', true)">[Robots Outro]</a>
+        </header>
+    </div>
+    
+    <div class="block-right">
+        <header class="albums">
+            <h1>Albums</h1>
+            <a href="#" onclick="set_album('something')">[Something]</a>
+            <br>
+            <a href="#" onclick="set_album('Mindustry OST')">[Mindustry OST]</a>
+        </header>
+    </div>
+
     <script src="music.js"></script>
 </body>
 </html>

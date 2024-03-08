@@ -1,34 +1,93 @@
 body {
     margin: 0;
     padding: 0;
-}
-
-.header {
     display: flex;
     min-height: 100vh;
     background-color: rgb(0, 0, 0);
 }
 
+/* ------------------- */
+
+.block-left {
+    left: 0;
+    top: 0;
+    position: fixed;
+    width:  33%;
+    height: 100%;
+    overflow: auto;
+}
+
 .pleer {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 25%;
+}
+
+/* ------------------- */
+
+.block-center {
+    left: 33%;
+    top: 0;
+    position: fixed;
+    width:  33%;
+    height: 100%;
+    overflow: auto;
+}
+
+.tracks {
     font-family: sans-serif;
     font-size: large;
     font-weight: 500;
     
-    text-align: center;
+    /* text-align: center; */
     margin: 0;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%)
+    top: 10%;
+    left: 25%;
+    /* margin-right: -50%; */
+    /* transform: translate(-50%, -50%) */
 }
 
-.pleer > a {
+.tracks > a {
     outline: none;
     text-decoration: none;
     color: white;
 }
 
-.pleer > a:hover {
-    color: rgb(95, 94, 94)
+.tracks > a:hover {
+    color: rgb(95, 94, 94);
+}
+
+/* ------------------- */
+
+.block-right{
+    right: 0;
+    top: 0;
+    position: fixed;
+    width:  33%;
+    height: 100%;
+    overflow: auto;
+}
+
+.albums {
+    font-family: sans-serif;
+    font-size: large;
+    font-weight: 500;
+    
+    /* text-align: center; */
+    margin: 0;
+    position: absolute;
+    top: 10%;
+    left: 25%;
+}
+
+.albums > a {
+    outline: none;
+    text-decoration: none;
+    color: white;
+}
+
+.albums > a:hover {
+    color: rgb(95, 94, 94);
 }
