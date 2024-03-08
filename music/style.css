@@ -55,6 +55,12 @@ body {
     color: white;
 }
 
+.tracks > h1 {
+    outline: none;
+    text-decoration: none;
+    color: white;
+}
+
 .tracks > a:hover {
     color: rgb(95, 94, 94);
 }
@@ -83,6 +89,12 @@ body {
 }
 
 .albums > a {
+    outline: none;
+    text-decoration: none;
+    color: white;
+}
+
+.tracks > h1 {
     outline: none;
     text-decoration: none;
     color: white;
