@@ -37,8 +37,6 @@ var album_tracks = albums[album];
 
 
 function next_track() {
-    var audio = document.getElementById("audio");
-    var pleer = document.getElementById("pleer");
     var track = document.getElementById("pleer").src;
 
     track = track.slice(track.lastIndexOf("/") + 1);
@@ -53,20 +51,32 @@ function next_track() {
 
 
 function set_track(track_name, start_play) {
+    var h1 = document.getElementById("track-name");
+    var h1_text = document.createTextNode(track_name.slice(0, -4));
+    h1.removeChild(h1.firstChild);
+    h1.appendChild(h1_text);
+
     var audio = document.getElementById("audio");
     var pleer = document.getElementById("pleer");
 
     track_name = "audio/" + album + "/" + track_name;
+
     pleer.setAttribute("src", track_name);
 
     audio.load();
     if (start_play) {
-        audio.play()
+        audio.play();
     }
 }
 
 
 function set_album(album_name) {
+    // var tracks_header = document.getElementById("tracks");
+    // var tracks_a = document.querySelectorAll(".track");
+    // for (track of tracks_a) {
+    //     track.setAttribute("class", "track hide");
+    // }
+
     album = album_name;
     album_tracks = albums[album];
 
@@ -76,7 +86,7 @@ function set_album(album_name) {
     }
 
     var h1 = document.createElement("h1");
-    h1_text = document.createTextNode("Tracks");
+    var h1_text = document.createTextNode("Tracks");
     h1.appendChild(h1_text);
     tracks_header.appendChild(h1);
 
@@ -89,6 +99,7 @@ function set_album(album_name) {
 
         a.setAttribute("href", "#");
         a.setAttribute("onclick", "set_track('" + track_name + "', true)");
+        a.setAttribute("class", "track show")
 
         tracks_header.appendChild(a);
         tracks_header.appendChild(br)
