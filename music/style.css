@@ -28,6 +28,12 @@ body {
     left: 25%;
 }
 
+.pleer > h1 {
+    outline: none;
+    text-decoration: none;
+    color: white;
+}
+
 /* ------------------- */
 
 .block-center {
