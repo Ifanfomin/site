@@ -98,3 +98,16 @@ function score_time_update() {
 }
 
 pleer.addEventListener("timeupdate", score_time_update);
+
+
+function space_stop_start(e) {
+    if (e.code == "Space") {
+        if (pleer.paused) {
+            play_track()
+        } else {
+            pause_track()
+        }
+    }
+}
+
+document.addEventListener('keydown', space_stop_start);
