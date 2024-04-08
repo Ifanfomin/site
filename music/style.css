@@ -71,8 +71,20 @@ body {
     color: burlywood;
 }
 
+.volume-button:hover {
+    color:rgb(140, 107, 63);
+}
+
 .score-button {
     color: burlywood;
+}
+
+.score-button:hover {
+    color:rgb(140, 107, 63);
+}
+
+.volume {
+    color: blueviolet;
 }
 
 /* ------------------- */
