@@ -1,7 +1,12 @@
 // res.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'});
 
+// Настройка плеера
+// var player = new Playerjs({id:"player", file:"audio/something/Only You.mp3"});
+
+// Работа с треками и переключением
 var albums = {
-    "something": [
+    "Something": 
+    [
         "I Loved Another Woman.mp3", 
         "Only You.mp3", 
         "Blood And Rockets.mp3", 
@@ -9,7 +14,8 @@ var albums = {
         "Aria Math (Phonk).mp3", 
         "Robots Outro.mp3"
     ],
-    "Mindustry OST": [
+    "Mindustry OST": 
+    [
         '1. Boss 0.mp3', 
         '2. Boss 1.mp3', 
         '3. Boss 2.mp3', 
@@ -32,7 +38,7 @@ var albums = {
 };
 
 
-var album = "something";
+var album = "Something";
 var album_tracks = albums[album];
 
 
@@ -55,6 +61,8 @@ function set_track(track_name, start_play) {
     var h1_text = document.createTextNode(track_name.slice(0, -4));
     h1.removeChild(h1.firstChild);
     h1.appendChild(h1_text);
+    // h1.setAttribute("class", "");
+    // h1.setAttribute("class", "show");
 
     var audio = document.getElementById("audio");
     var pleer = document.getElementById("pleer");
@@ -86,8 +94,9 @@ function set_album(album_name) {
     }
 
     var h1 = document.createElement("h1");
-    var h1_text = document.createTextNode("Tracks");
+    var h1_text = document.createTextNode(album_name);
     h1.appendChild(h1_text);
+    h1.setAttribute("class", "text album show");
     tracks_header.appendChild(h1);
 
     for (track_name of album_tracks) {
@@ -99,7 +108,7 @@ function set_album(album_name) {
 
         a.setAttribute("href", "#");
         a.setAttribute("onclick", "set_track('" + track_name + "', true)");
-        a.setAttribute("class", "track show")
+        a.setAttribute("class", "text track show");
 
         tracks_header.appendChild(a);
         tracks_header.appendChild(br)

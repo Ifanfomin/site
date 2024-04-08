@@ -6,6 +6,21 @@ body {
     background-color: rgb(0, 0, 0);
 }
 
+.text {
+    outline: none;
+    text-decoration: none;
+}
+
+.show {
+    opacity: 0;
+    animation: show_ani 1s forwards;
+}
+
+.hide {
+    opacity: 0;
+    /* animation: hide_ani 1s forwards; */
+}
+
 /* ------------------- */
 
 .block-left {
@@ -17,7 +32,7 @@ body {
     overflow: auto;
 }
 
-.pleer {
+.pleer-header {
     font-family: sans-serif;
     font-size: large;
     font-weight: 500;
@@ -28,10 +43,36 @@ body {
     left: 25%;
 }
 
-.pleer > h1 {
-    outline: none;
-    text-decoration: none;
+.now-track {
     color: white;
+}
+
+.play-button {
+    color: greenyellow;
+}
+
+.play-button:hover {
+    color: green;
+}
+
+.pause-button {
+    color: rgb(255, 49, 49);
+}
+
+.pause-button:hover {
+    color: rgb(125, 0, 0);
+}
+
+.time-score {
+    color: rgb(181, 164, 255);
+}
+
+.volume-button {
+    color: burlywood;
+}
+
+.score-button {
+    color: burlywood;
 }
 
 /* ------------------- */
@@ -57,14 +98,17 @@ body {
 }
 
 .track {
-    outline: none;
-    text-decoration: none;
     color: white;
     /* animation: hide_ani 0.5s forwards; */
     /* transition: left 2s linear; */
 }
 
 .track.show {
+    opacity: 0;
+    animation: show_ani 1s forwards;
+}
+
+.album.show {
     opacity: 0;
     animation: show_ani 1s forwards;
 }
@@ -84,19 +128,17 @@ body {
     100% {opacity: 0;}
 }
 
-.tracks > h1 {
-    outline: none;
-    text-decoration: none;
+.album-name {
     color: white;
 }
 
-.tracks > a:hover {
+.track:hover {
     color: rgb(95, 94, 94);
 }
 
 /* ------------------- */
 
-.block-right{
+.block-right {
     right: 0;
     top: 0;
     position: fixed;
@@ -116,18 +158,14 @@ body {
     left: 25%;
 }
 
-.albums > a {
-    outline: none;
-    text-decoration: none;
+.album {
     color: white;
 }
 
-.albums > h1 {
-    outline: none;
-    text-decoration: none;
+.albums-head {
     color: white;
 }
 
-.albums > a:hover {
+.album:hover {
     color: rgb(95, 94, 94);
 }
