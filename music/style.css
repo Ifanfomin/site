@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css2?family=Fira+Code:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap);
+
 body {
     margin: 0;
     padding: 0;
@@ -7,6 +9,7 @@ body {
 }
 
 .text {
+    font-family: Fira Code;
     outline: none;
     text-decoration: none;
 }
@@ -22,29 +25,59 @@ body {
 }
 
 /* ------------------- */
+@media only screen and (max-device-width: 1920px) {
+    .block-left {
+        left: 0;
+        top: 0;
+        position: fixed;
+        width:  33%;
+        height: 100%;
+        overflow: auto;
+    }
 
-.block-left {
-    left: 0;
-    top: 0;
-    position: fixed;
-    width:  33%;
-    height: 100%;
-    overflow: auto;
+    .now-track {
+        color: white;
+    }
+
+    .pleer-header {
+        font-family: sans-serif;
+        font-size: large;
+        font-weight: 500;
+    
+        margin: 0;
+        position: absolute;
+        top: 10%;
+        left: 25%;
+    }
 }
 
-.pleer-header {
-    font-family: sans-serif;
-    font-size: large;
-    font-weight: 500;
+@media only screen and (max-device-width: 900px) {
+    .block-left {
+        left: 0;
+        top: 0;
+        position: fixed;
+        width: 100%;
+        /* height: 33%; */
+        overflow: auto;
+        max-height: 25%;
+    }
 
-    margin: 0;
-    position: absolute;
-    top: 10%;
-    left: 25%;
-}
+    .now-track {
+        font-size: x-large;
+        color: white;
+    }
 
-.now-track {
-    color: white;
+    .pleer-header {
+        font-family: sans-serif;
+        font-size: large;
+        font-weight: 500;
+    
+        margin: 0;
+        position: absolute;
+        top: 0%;
+        left: 5%;
+        /* text-align: center; */
+    }
 }
 
 .play-button {
@@ -88,26 +121,61 @@ body {
 }
 
 /* ------------------- */
+@media only screen and (max-device-width: 1920px) {
+    .block-center {
+        left: 33%;
+        top: 0;
+        position: fixed;
+        width:  33%;
+        height: 100%;
+        overflow: auto;
+    }
 
-.block-center {
-    left: 33%;
-    top: 0;
-    position: fixed;
-    width:  33%;
-    height: 100%;
-    overflow: auto;
+    .album-name {
+        color: rgb(255, 255, 255);
+    }
+
+    .tracks {
+        font-family: sans-serif;
+        font-size: large;
+        font-weight: 500;
+        
+        margin: 0;
+        position: absolute;
+        top: 10%;
+        left: 25%;
+    }
 }
 
-.tracks {
-    font-family: sans-serif;
-    font-size: large;
-    font-weight: 500;
-    
-    margin: 0;
-    position: absolute;
-    top: 10%;
-    left: 25%;
+@media only screen and (max-device-width: 900px) {
+    .block-center {
+        left: 0%;
+        top: 20%;
+        position: fixed;
+        width:  100%;
+        max-height: 50%;
+        /* height: 33%; */
+        overflow: auto;
+    }
+
+    .album-name {
+        font-size: x-large;
+        color: rgb(255, 255, 255);
+    }
+
+    .tracks {
+        font-family: sans-serif;
+        font-size: large;
+        font-weight: 500;
+        
+        margin: 0;
+        position: absolute;
+        top: 0%;
+        left: 5%;
+    }
 }
+
+
 
 .track {
     color: white;
@@ -140,41 +208,69 @@ body {
     100% {opacity: 0;}
 }
 
-.album-name {
-    color: white;
-}
-
 .track:hover {
     color: rgb(95, 94, 94);
 }
 
 /* ------------------- */
 
-.block-right {
-    right: 0;
-    top: 0;
-    position: fixed;
-    width:  33%;
-    height: 100%;
-    overflow: auto;
+@media only screen and (max-device-width: 1920px) {
+    .block-right {
+        right: 0;
+        top: 0;
+        position: fixed;
+        width:  33%;
+        height: 100%;
+        overflow: auto;
+    }
+
+    .albums-head {
+        color: white;
+    }
+
+    .albums {
+        font-family: sans-serif;
+        font-size: large;
+        font-weight: 500;
+        
+        margin: 0;
+        position: absolute;
+        top: 10%;
+        left: 25%;
+    }
 }
 
-.albums {
-    font-family: sans-serif;
-    font-size: large;
-    font-weight: 500;
-    
-    margin: 0;
-    position: absolute;
-    top: 10%;
-    left: 25%;
+@media only screen and (max-device-width: 900px) {
+    .block-right {
+        /* right: 0; */
+        /* position: fixed; */
+        width:  100%;
+        /* height: 33%; */
+        overflow: auto;
+        top: 70%;
+        max-height: 30%;
+    }
+
+    .albums-head {
+        font-size: x-large;
+        color: white;
+    }
+
+    .albums {
+        font-family: sans-serif;
+        font-size: large;
+        font-weight: 500;
+        
+        margin: 0;
+        /* position: absolute; */
+        top: 0%;
+        left: 5%;
+    }
 }
+
+
 
 .album {
-    color: white;
-}
-
-.albums-head {
     color: white;
 }
 

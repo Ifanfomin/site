@@ -20,7 +20,7 @@
             <br>
             <a href="#" id="score_up" class="text score-button">[+10]</a>
             <a href="#" id="score_down" class="text score-button">[-10]</a>
-            <a href="#" id="score_time" class="text time-score">[00:00]</a>
+            <a id="score_time" class="text time-score">[00:00]</a>
             <br>
             <a href="#" id="volume_up" class="text volume-button">[+vol]</a>
             <a href="#" id="volume_down" class="text volume-button">[-vol]</a>
@@ -30,27 +30,16 @@
 
     <div class="block-center">
         <header class="tracks" id="tracks">
-            <h1 class="text album-name">Something</h1>
-            <a href="#" onclick="set_track('I Loved Another Woman.mp3', true)" class="text track">[I Loved Another Woman]</a>
-            <br>
-            <a href="#" onclick="set_track('Only You.mp3', true)" class="text track">[Only You]</a>
-            <br>
-            <a href="#" onclick="set_track('Blood And Rockets.mp3', true)" class="text track">[Blood And Rockets]</a>
-            <br>
-            <a href="#" onclick="set_track('Satana.mp3', true)" class="text track">[Сатана]</a>
-            <br>
-            <a href="#" onclick="set_track('Aria Math (Phonk).mp3', true)" class="text track">[Aria Math Phonk]</a>
-            <br>
-            <a href="#" onclick="set_track('Robots Outro.mp3', true)" class="text track">[Robots Outro]</a>
+            <h1 class="text album-name">Choose an album</h1>
         </header>
     </div>
     
     <div class="block-right">
-        <header class="albums">
+        <header class="albums" id="albums">
             <h1 class="text albums-head">Albums</h1>
-            <a href="#" onclick="set_album('Something')" class="text album">[Something]</a>
+            <a href="#" onclick="set_folder('Иностранное')" class="text album">[Иностранное]</a>
             <br>
-            <a href="#" onclick="set_album('Mindustry OST')" class="text album">[Mindustry OST]</a>
+            <a href="#" onclick="set_folder('Русское')" class="text album">[Русское]</a>
         </header>
     </div>
 
