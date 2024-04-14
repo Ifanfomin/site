@@ -45,6 +45,7 @@ function next_track() {
 function set_track(track_name, start_play, by_user) {
     console.log(user_pos);
     if (by_user == true) {
+        tracks = user_folder._tracks.slice(0);
         now_play = user_pos.slice(0);
         now_play.push(track_name);
     } else {
@@ -99,7 +100,7 @@ function set_folder(folder) {
     for (folder of user_pos) {
         user_folder = user_folder[folder];
     }
-    tracks = user_folder._tracks;
+    // tracks = user_folder._tracks;
     folders = Object.keys(user_folder).slice(0, -1);
 
     // Собираем плашку с папками справа
@@ -156,7 +157,7 @@ function set_folder(folder) {
     h1.setAttribute("class", "text album-name show");
     tracks_header.appendChild(h1);
 
-    for (track_name of tracks) {
+    for (track_name of user_folder._tracks) {
         var br = document.createElement("br");
         var a = document.createElement("a");
 
