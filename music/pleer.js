@@ -129,10 +129,23 @@ function space_stop_start(e) {
 document.addEventListener("keydown", space_stop_start);
 
 
+function copy(str){
+    var tmp   = document.createElement('INPUT');
+    var focus = document.activeElement;
+  
+    tmp.value = str;
+  
+    document.body.appendChild(tmp);
+    tmp.select();
+    document.execCommand('copy');
+    document.body.removeChild(tmp);
+    focus.focus();
+}
+
 function copy_album_path() {
     var url_to_copy = "http://ifanfomin.ru/music/music.html?path=/" + user_pos.slice(1).join("/");
     console.log(`Путь: ${url_to_copy}`);
-    navigator.clipboard.writeText(url_to_copy);
+    copy(url_to_copy);
     copied.setAttribute("class", "text copied-text");
     void copied.offsetParent;
     copied.setAttribute("class", "text copied-text show-and-hide");
@@ -142,7 +155,8 @@ function copy_album_song() {
     console.log(`Сейчас играет: ${now_play[now_play.length - 1]}`)
     var url_to_copy = "http://ifanfomin.ru/music/music.html?path=/" + user_pos.slice(1).join("/") + "&track=" + now_play[now_play.length - 1];
     console.log(`Путь: ${url_to_copy}`);
-    navigator.clipboard.writeText(url_to_copy);
+    copy(url_to_copy);
+
     copied.setAttribute("class", "text copied-text");
     void copied.offsetParent;
     copied.setAttribute("class", "text copied-text show-and-hide");
