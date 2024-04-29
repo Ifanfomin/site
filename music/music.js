@@ -1,29 +1,35 @@
-// res.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'});
-
-// Настройка плеера
-// var player = new Playerjs({id:"player", file:"audio/something/Only You.mp3"});
-
-// Работа с треками и переключением
-var files = {
-    "Base": {
-        'Иностранное': {'Black Sabbath': {'1970. Black Sabbath': {'_tracks': ['01. Black Sabbath.mp3', '02. The Wizard.mp3', '03. Behind The Wall Of Sleep.mp3', '04. N.I.B..mp3', "05. Evil Woman, Don't Play Your Games With Me.mp3", '06. Sleeping Village.mp3', '07. Warning.mp3']}, '1970. Paranoid': {'_tracks': ['01. War Pigs.mp3', '02. Paranoid.mp3', '03. Planet Caravan.mp3', '04. Iron Man.mp3', '05. Electric Funeral.mp3', '06. Hand Of Doom.mp3', '07. Rat Salad.mp3', '08. Fairies Wear Boots.mp3']}, '_tracks': []}, 'Pink Floyd': {'1967 - The Piper At The Gates Of Dawn': {'_tracks': ['01. Astronomy Domine (Mono).mp3', '02. Lucifer Sam (Mono).mp3', '03. Matilda Mother (Mono).mp3', '04. Flaming (Mono).mp3', '05. Pow R. Toc H. (Mono).mp3', '06. Take Up Thy Stethoscope And Walk (Mono).mp3', '07. Interstellar Overdrive (Mono).mp3', '08. The Gnome (Mono).mp3', '09. Chapter 24 (Mono).mp3', '10. The Scarecrow (Mono).mp3', '11. Bike (Mono).mp3']}, '1970 - Atom Heart Mother': {'_tracks': ['01. Atom Heart Mother.mp3', '02. If.mp3', "03. Summer '68.mp3", '04. Fat Old Sun.mp3', "05. Alan's Psychedelic Breakfast.mp3"]}, '1973 - The Dark Side Of The Moon': {'_tracks': ['1. Speak To Me.mp3', '10. Eclipse.mp3', '2. Breathe (In The Air).mp3', '3. On The Run.mp3', '4. Time.mp3', '5. The Great Gig In The Sky.mp3', '6. Money.mp3', '7. Us And Them.mp3', '8. Any Colour You Like.mp3', '9. Brain Damage.mp3']}, '_tracks': []}, '_tracks': []}, 'Русское': {'Аквариум': {'1983 - Радио Африка': {'Covers': {'_tracks': []}, '_tracks': ['01. музыка серебряных спиц.mp3', '02. капитан африка.mp3', '03. песни вычерпывающих людей.mp3', '04. змея.mp3', '05. вана хойа.mp3', '06. рок-н-ролл мертв.mp3', '07. радио шао-линь.mp3', '08. искусство быть смирным.mp3', '09. тибетское танго.mp3', '10. время луны.mp3', '11. мальчик евграф.mp3', '12. твоей звезде.mp3', '13. с утра шел снег.mp3', '14. еще один упавший вниз.mp3', '15. Платан [бонус трек].mp3', '16. Сторож Сергеев [бонус трек].mp3', '17. Альтернатива [бонус трек].mp3']}, '_tracks': []}, 'АукцЫон': {'1990 - Жопа': {'_tracks': ['01. Колпак.mp3', '02. Немой.mp3', '03. Пионер.mp3', '04. Боюсь.mp3', '05. Ябеда.mp3', '06. Самолёт.mp3', '07. Любовь.mp3', '08. Вру.mp3', '09. Выжить.mp3', '10. Убьют.mp3']}, '1991 - Бодун': {'_tracks': ['01. В нелюди.mp3', '02. День Победы.mp3', '03. Ушла.mp3', '04. Сирота.mp3', '05. Слон.mp3', '06. Фа фа фа.mp3', '07. Warum.mp3', '08. Лётчик.mp3', '09. Песня про столбы.mp3', '10. Зима.mp3', '11. Отлюбил.mp3']}, '_tracks': []}, 'Самое большое простое число': {'_tracks': ['Злой.mp3']}, '_tracks': []}, '_tracks': []
-    }
-};
-
-// var files = fetch("file:///home/ifan/projects/site/tests_and_helps/music/files.json");
-console.log(files);
-
-
-// var album = "Something";
-// var album_tracks = files[album];
-
+// Основная работа
 var album_name = "";
 var user_pos = ["Base"];
+console.log(`Позиция ${user_pos}`)
 var user_folder = {};
 var folders = [];
 var tracks = [];
 var now_play = [];
 
+// Принимаем Query String
+// Пример запроса: ?path=/Русское/Аквариум/1983 - Радио Африка&track=музыка серебряных спиц
+const params = new URLSearchParams(window.location.search);
+var path = params.get('path').split("/").slice(1);
+console.log(`Путь: ${path}`);
+set_path(path);
+var track = params.get('track');
+console.log(`Трек для включения: ${track}`);
+if (user_folder._tracks.indexOf(track) != -1) {
+    set_track(track, false, true);
+}
+
+
+function set_path(path) {
+    for (var f_index = 0; f_index < path.length; f_index++) {
+        var folder = path[f_index];
+        if (f_index == path.length - 1) {
+            set_folder(folder, true);
+        } else {
+            set_folder(folder, false);
+        }
+    }
+}
 
 
 function next_track() {
@@ -74,7 +80,7 @@ function set_track(track_name, start_play, by_user) {
 }
 
 
-function set_folder(folder) {
+function set_folder(folder, show) {
     // var tracks_header = document.getElementById("tracks");
     // var tracks_a = document.querySelectorAll(".track");
     // for (track of tracks_a) {
@@ -85,24 +91,42 @@ function set_folder(folder) {
     // album_tracks = albums[album];
 
     // Достаём треки из системы
-    album_name = folder;
-    console.log(folder)
+    // album_name = folder;
+    console.log(folder);
     if (user_pos.indexOf(folder) == 0) {
         user_pos = ["Base"];
+        album_name = folder;
     } else if (user_pos.indexOf(folder) != -1) {
         user_pos = user_pos.slice(0, user_pos.indexOf(folder) + 1);
-    } else {
+        album_name = folder;
+    }
+
+    user_folder = files;
+    for (var u_folder of user_pos) {
+        user_folder = user_folder[u_folder];
+    }
+
+    if (Object.keys(user_folder).slice(0).indexOf(folder) != -1) {
+        // user_pos.push(folder);
         user_pos.push(folder);
+        user_folder = user_folder[folder]
+        album_name = folder;
+    } else {
+        show = true;
     }
     
-    user_folder = files;
+    // user_folder = files;
 
-    for (folder of user_pos) {
-        user_folder = user_folder[folder];
+    // for (folder of user_pos) {
+    //     user_folder = user_folder[folder];
+    // }
+    if (show == true) {
+        show_folders_and_tracks(user_folder);
     }
-    // tracks = user_folder._tracks;
-    folders = Object.keys(user_folder).slice(0, -1);
+}
 
+function show_folders_and_tracks(user_folder) {
+    folders = Object.keys(user_folder).slice(0, -1);
     // Собираем плашку с папками справа
     var albums_header = document.getElementById("albums");
     while (albums_header.firstChild) {
@@ -115,7 +139,7 @@ function set_folder(folder) {
     h1.setAttribute("class", "text albums-head");
     albums_header.appendChild(h1);
 
-    for (folder of user_pos.slice(0, -1)) {
+    for (var folder of user_pos.slice(0, -1)) {
         var br = document.createElement("br");
         var a = document.createElement("a");
 
@@ -123,14 +147,14 @@ function set_folder(folder) {
         a.appendChild(a_text);
 
         a.setAttribute("href", "#");
-        a.setAttribute("onclick", "set_folder('" + folder + "')");
+        a.setAttribute("onclick", "set_folder('" + folder + "', true)");
         a.setAttribute("class", "text track show");
 
         albums_header.appendChild(a);
         albums_header.appendChild(br)
     }
 
-    for (folder of folders) {
+    for (var folder of folders) {
         var br = document.createElement("br");
         var a = document.createElement("a");
 
@@ -138,7 +162,7 @@ function set_folder(folder) {
         a.appendChild(a_text);
 
         a.setAttribute("href", "#");
-        a.setAttribute("onclick", "set_folder('" + folder + "')");
+        a.setAttribute("onclick", "set_folder('" + folder + "', true)");
         a.setAttribute("class", "text track show");
 
         albums_header.appendChild(a);
@@ -157,7 +181,7 @@ function set_folder(folder) {
     h1.setAttribute("class", "text album-name show");
     tracks_header.appendChild(h1);
 
-    for (track_name of user_folder._tracks) {
+    for (var track_name of user_folder._tracks) {
         var br = document.createElement("br");
         var a = document.createElement("a");
 

@@ -24,6 +24,22 @@ body {
     /* animation: hide_ani 1s forwards; */
 }
 
+.show-and-hide {
+    opacity: 0;
+    animation: show-ani 5s;
+    /* animation: hide-ani 1s forward; */
+}
+
+@keyframes show-ani {
+    from {opacity: 0;}
+
+    25% {opacity: 1;}
+
+    75% {opacity: 1;}
+
+    to {opacity: 0;}
+}
+
 /* ------------------- */
 @media only screen and (max-device-width: 1920px) {
     .block-left {
@@ -117,6 +133,17 @@ body {
 }
 
 .volume {
+    color: blueviolet;
+}
+
+.copy-path-button {
+    color: burlywood;
+}
+.copy-path-button:hover {
+    color: rgb(140, 107, 63);
+}
+
+.copied-text {
     color: blueviolet;
 }
 

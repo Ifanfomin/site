@@ -19,6 +19,10 @@ var score_step = 10;
 var score_time_element = document.getElementById("score_time");
 var score_time = "[00:00]"
 
+var copy_path = document.getElementById("copy_path");
+var copy_song = document.getElementById("copy_song");
+var copied = document.getElementById("copied");
+
 
 function play_track() {
     pleer.play();
@@ -115,11 +119,34 @@ pleer.addEventListener("timeupdate", score_time_update);
 function space_stop_start(e) {
     if (e.code == "Space") {
         if (pleer.paused) {
-            play_track()
+            play_track();
         } else {
-            pause_track()
+            pause_track();
         }
     }
 }
 
-document.addEventListener('keydown', space_stop_start);
+document.addEventListener("keydown", space_stop_start);
+
+
+function copy_album_path() {
+    var url_to_copy = "http://ifanfomin.ru/music/music.html?path=/" + user_pos.slice(1).join("/");
+    console.log(`Путь: ${url_to_copy}`);
+    navigator.clipboard.writeText(url_to_copy);
+    copied.setAttribute("class", "text copied-text");
+    void copied.offsetParent;
+    copied.setAttribute("class", "text copied-text show-and-hide");
+}
+
+function copy_album_song() {
+    console.log(`Сейчас играет: ${now_play[now_play.length - 1]}`)
+    var url_to_copy = "http://ifanfomin.ru/music/music.html?path=/" + user_pos.slice(1).join("/") + "&track=" + now_play[now_play.length - 1];
+    console.log(`Путь: ${url_to_copy}`);
+    navigator.clipboard.writeText(url_to_copy);
+    copied.setAttribute("class", "text copied-text");
+    void copied.offsetParent;
+    copied.setAttribute("class", "text copied-text show-and-hide");
+}
+
+copy_path.addEventListener("click", copy_album_path);
+copy_song.addEventListener("click", copy_album_song);
