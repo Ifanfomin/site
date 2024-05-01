@@ -1,5 +1,6 @@
 import os
 import json
+import subprocess
 
 def f(dct, name, path, number):
     path = path + name + "/"
@@ -18,6 +19,7 @@ def f(dct, name, path, number):
             with open("files.json", "w") as files:
                 json.dump({"Base": dct}, files)
             print(dct)
+            # subprocess.run('echo {} | clip'.format(dct), shell=True, check=True)
     except:
         ...
 
