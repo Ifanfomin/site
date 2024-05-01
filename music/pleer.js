@@ -19,7 +19,6 @@ var score_step = 10;
 var score_time_element = document.getElementById("score_time");
 var score_time = "[00:00]"
 
-var copy_path = document.getElementById("copy_path");
 var copy_song = document.getElementById("copy_song");
 var copied = document.getElementById("copied");
 
@@ -130,7 +129,7 @@ document.addEventListener("keydown", space_stop_start);
 
 
 function copy(str){
-    var tmp   = document.createElement('INPUT');
+    var tmp = document.createElement('INPUT');
     var focus = document.activeElement;
   
     tmp.value = str;
@@ -140,15 +139,6 @@ function copy(str){
     document.execCommand('copy');
     document.body.removeChild(tmp);
     focus.focus();
-}
-
-function copy_album_path() {
-    var url_to_copy = "http://ifanfomin.ru/music/music.html?path=/" + user_pos.slice(1).join("/");
-    console.log(`Путь: ${url_to_copy}`);
-    copy(url_to_copy);
-    copied.setAttribute("class", "text copied-text");
-    void copied.offsetParent;
-    copied.setAttribute("class", "text copied-text show-and-hide");
 }
 
 function copy_album_song() {
@@ -162,5 +152,4 @@ function copy_album_song() {
     copied.setAttribute("class", "text copied-text show-and-hide");
 }
 
-copy_path.addEventListener("click", copy_album_path);
 copy_song.addEventListener("click", copy_album_song);
