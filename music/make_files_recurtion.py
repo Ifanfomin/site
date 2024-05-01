@@ -59,67 +59,71 @@ f({}, "", "Audio", 0)
 
 
 
-
+# Пример созданного данным скриптом словаря для нашей файловой системы
 d = {
-    'Иностранное': {
-        'Pink Floyd': {
-            '1967 - The Piper At The Gates Of Dawn [2007, 50999-503919-2-9]': {
-                '03. Matilda Mother (Mono).mp3': {}, 
-                '02. Lucifer Sam (Mono).mp3': {}, 
-                '07. Interstellar Overdrive (Mono).mp3': {}, 
-                '09. Chapter 24 (Mono).mp3': {}, 
-                '11. Bike (Mono).mp3': {}, 
-                '01. Astronomy Domine (Mono).mp3': {}, 
-                '08. The Gnome (Mono).mp3': {}, 
-                '04. Flaming (Mono).mp3': {}, 
-                '10. The Scarecrow (Mono).mp3': {}, 
-                'Front.jpg': {}, 
-                '05. Pow R. Toc H. (Mono).mp3': {}, 
-                '06. Take Up Thy Stethoscope And Walk (Mono).mp3': 
-                {}
-            }, 
-            '1970 - Atom Heart Mother [1994, UDCD 595]': {
-                "05. Alan's Psychedelic Breakfast.mp3": {}, 
-                '04. Fat Old Sun.mp3': {}, 
-                'Front.jpg': {}, 
-                '02. If.mp3': {}, 
-                '01. Atom Heart Mother.mp3': {}, 
-                "03. Summer '68.mp3": {}
-            }, 
-            '1973 - The Dark Side Of The Moon [2011, 5099902943121] (Immersion Ed.)': {
-                'folder.jpg': {}, 
-                '06. Us And Them.flac': {}, 
-                '09. Eclipse.flac': {}, 
-                '07. Any Colour You Like.flac': {}, 
-                '03. Time.flac': {}, 
-                '01. Speak To Me - Breathe.flac': {}, 
-                '08. Brain Damage.flac': {}, 
-                '04. The Great Gig In The Sky.flac': {}, 
-                '02. On The Run.flac': {}, '05. Money.flac': {}
-            }
-        }, 
-        'Black Sabbath': {
-            '1970. Paranoid [2009, 1782444]': {
-                '07. Rat Salad.mp3': {}, 
-                '02. Paranoid.mp3': {}, 
-                '08. Fairies Wear Boots.mp3': {}, 
-                '06. Hand Of Doom.mp3': {}, 
-                '05. Electric Funeral.mp3': {}, 
-                '04. Iron Man.mp3': {}, 
-                'Front.jpg': {}, 
-                '03. Planet Caravan.mp3': {}, 
-                '01. War Pigs.mp3': {}
-            }, 
-            '1970. Black Sabbath [2012, UIGY-9094]': {
-                '04. N.I.B..mp3': {}, 
-                '01. Black Sabbath.mp3': {}, 
-                '07. Warning.mp3': {}, 
-                '06. Sleeping Village.mp3': {}, 
-                '03. Behind The Wall Of Sleep.mp3': {}, 
-                "05. Evil Woman, Don't Play Your Games With Me.mp3": {}, 
-                'Front.jpg': {}, '02. The Wizard.mp3': {}
-            }
-        }
+    'Русское': {
+        'Аквариум': {
+            '1983 - Радио Африка': {
+                'Covers': {
+                    '_tracks': []
+                },
+                '_tracks': [
+                    '01. музыка серебряных спиц.mp3', 
+                    '02. капитан африка.mp3', 
+                    '03. песни вычерпывающих людей.mp3', 
+                    '04. змея.mp3', 
+                    '05. вана хойа.mp3', 
+                    '06. рок-н-ролл мертв.mp3', 
+                    '07. радио шао-линь.mp3', 
+                    '08. искусство быть смирным.mp3', 
+                    '09. тибетское танго.mp3', 
+                    '10. время луны.mp3', 
+                    '11. мальчик евграф.mp3', 
+                    '12. твоей звезде.mp3', 
+                    '13. с утра шел снег.mp3', 
+                    '14. еще один упавший вниз.mp3', 
+                    '15. Платан [бонус трек].mp3', 
+                    '16. Сторож Сергеев [бонус трек].mp3', 
+                    '17. Альтернатива [бонус трек].mp3']
+            },
+            '_tracks': []
+        },
+        'АукцЫон': {
+            '1990 - Жопа': {
+                '_tracks': [
+                    '01. Колпак.mp3', 
+                    '02. Немой.mp3', 
+                    '03. Пионер.mp3', 
+                    '04. Боюсь.mp3', 
+                    '05. Ябеда.mp3', 
+                    '06. Самолёт.mp3', 
+                    '07. Любовь.mp3', 
+                    '08. Вру.mp3', 
+                    '09. Выжить.mp3', 
+                    '10. Убьют.mp3']
+            },
+            '1991 - Бодун': {
+                '_tracks': [
+                    '01. В нелюди.mp3', 
+                    '02. День Победы.mp3', 
+                    '03. Ушла.mp3', 
+                    '04. Сирота.mp3', 
+                    '05. Слон.mp3', 
+                    '06. Фа фа фа.mp3', 
+                    '07. Warum.mp3', 
+                    '08. Лётчик.mp3', 
+                    '09. Песня про столбы.mp3', 
+                    '10. Зима.mp3', 
+                    '11. Отлюбил.mp3']
+            },
+            '_tracks': []
+        },
+        'Самое большое простое число': {
+            '_tracks': [
+                'Злой.mp3'
+            ]
+        },
+        '_tracks': []
     }, 
-    'Русское': {}
+    '_tracks': []
 }
