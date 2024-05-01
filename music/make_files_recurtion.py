@@ -5,17 +5,15 @@ import subprocess
 
 def sorting(x):
     if x.find(".") < 4 and x[:x.find(".")].isdigit():
-        x = int(x[:x.find(".")])
+        x = "0" * (4 - len(x[:x.find(".")])) + x[:x.find(".")]
     elif x.find(" ") < 4 and x[:x.find(" ")].isdigit():
-        x = int(x[:x.find(" ")])
+        x = "0" * (4 - len(x[:x.find(" ")])) + x[:x.find(" ")]
     elif x.find("-") < 4 and x[:x.find("-")].isdigit():
-        x = int(x[:x.find("-")])
+        x = "0" * (4 - len(x[:x.find("-")])) + x[:x.find("-")]
     elif x.find("_") < 4 and x[:x.find("_")].isdigit():
-        x = int(x[:x.find("_")])
+        x = "0" * (4 - len(x[:x.find("_")])) + x[:x.find("_")]
     elif x.find(",") < 4 and x[:x.find(",")].isdigit():
-        x = int(x[:x.find(",")])
-    else:
-        x = 0
+        x = "0" * (4 - len(x[:x.find(",")])) + x[:x.find(",")]
     return x
 
 
@@ -37,8 +35,6 @@ def f(dct, name, path, number):
                 tracks.append(name)
     dct["_tracks"] = tracks
     if number == 0:
-        with open("files.json", "w") as files:
-            json.dump({"Base": dct}, files)
         print(dct)
             # subprocess.run('echo {} | clip'.format(dct), shell=True, check=True)
     # except e:
