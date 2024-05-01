@@ -2,26 +2,47 @@ import os
 import json
 import subprocess
 
+
+def sorting(x):
+    if x.find(".") < 4 and x[:x.find(".")].isdigit():
+        x = int(x[:x.find(".")])
+    elif x.find(" ") < 4 and x[:x.find(" ")].isdigit():
+        x = int(x[:x.find(" ")])
+    elif x.find("-") < 4 and x[:x.find("-")].isdigit():
+        x = int(x[:x.find("-")])
+    elif x.find("_") < 4 and x[:x.find("_")].isdigit():
+        x = int(x[:x.find("_")])
+    elif x.find(",") < 4 and x[:x.find(",")].isdigit():
+        x = int(x[:x.find(",")])
+    else:
+        x = 0
+    return x
+
+
+
 def f(dct, name, path, number):
     path = path + name + "/"
     tracks = []
-    try:
-        names = sorted(os.listdir(path))
-        for name in names:
-            if all([extension not in name for extension in extensions]):
-                dct[name] = {}
-                f(dct[name], name, path, number+1)
-            else:
-                if any([extension in name for extension in music_extensions]):
-                    tracks.append(name)
-        dct["_tracks"] = tracks
-        if number == 0:
-            with open("files.json", "w") as files:
-                json.dump({"Base": dct}, files)
-            print(dct)
+    # try:
+    names = sorted(
+        os.listdir(path),
+        key=lambda x: sorting(x)
+        )
+    for name in names:
+        if all([extension not in name for extension in extensions]):
+            dct[name] = {}
+            f(dct[name], name, path, number+1)
+        else:
+            if any([extension in name for extension in music_extensions]):
+                tracks.append(name)
+    dct["_tracks"] = tracks
+    if number == 0:
+        with open("files.json", "w") as files:
+            json.dump({"Base": dct}, files)
+        print(dct)
             # subprocess.run('echo {} | clip'.format(dct), shell=True, check=True)
-    except:
-        ...
+    # except e:
+    #     print(e)
 
 extensions = [".mp3", ".flac", ".ogg", ".wav", ".png", ".jpg", ".jpeg"]
 music_extensions = [".mp3", ".flac", ".ogg", ".wav"]
