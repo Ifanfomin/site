@@ -1,5 +1,5 @@
 // Основная работа
-var music_directory = "/audio/";
+var music_directory = "/../audio/";
 var images_directory = music_directory + "img/";
 var album_name = "";
 var user_pos = ["Base"];
