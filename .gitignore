@@ -2,5 +2,5 @@ tests_and_helps/
 music/audio/
 music/files.js
 music/music.js
-
+.vscode
 .venv
