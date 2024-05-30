@@ -1,5 +1,6 @@
 // Основная работа
-var music_directory = "../audio/";
+// var music_directory = "/media/ifan/64_IFAN_SB/";
+var music_directory = "/music/audio/";
 var images_directory = music_directory + "img/";
 var album_name = "";
 var user_pos = ["Base"];
