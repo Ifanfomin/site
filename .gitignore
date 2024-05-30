@@ -1,3 +1,6 @@
 tests_and_helps/
-# music/audio/
+music/audio/
+music/files.js
+music/music.js
+
 .venv
