@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ifanfomin</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="../../icon/favicon.png" sizes="192x192" type="image/png">
+</head>
+<body>
+    <div class="block-left">
+        <header class="pleer-header" id="pleer-header">
+            <audio id='audio' onended="next_track()">
+                <source src="" type="audio/mpeg" id="pleer">
+                Your browser does not support the <code>audio</code> element.
+            </audio>
+
+            <h1 id="track-name" class="text now-track">Track</h1>
+            <!-- <img class="album-image" id="album_image_1" src="1.png" alt=""> -->
+            <img class="album-image" id="album_image_2" src="" alt="">
+            <br><br>
+            <div class="pleer-buttons">
+                <a id="play" class="text play-button">[play]</a>
+                <a id="pause" class="text pause-button">[pause]</a>
+                <br>
+                <a id="prev" class="text simple-button">[prev]</a>
+                <a id="next" class="text simple-button">[next]</a>
+                <br>
+                <a id="score_down" class="text simple-button">[-10]</a>
+                <a id="score_up" class="text simple-button">[+10]</a>
+                <span id="score_time" class="text time-score unselectable">[00:00]</span>
+                <br>
+                <a id="volume_down" class="text simple-button">[-vol]</a>
+                <a id="volume_up" class="text simple-button">[+vol]</a>
+                <a id="volume_text" class="text volume">[100]</a>
+                <br>
+                <a id="posled" class="text simple-button setted">[posled]</a>
+                <a id="random" class="text simple-button">[random]</a>
+                <br>
+                <a id="copy_song" class="text simple-button">[send song]</a>
+                <span id="copied" class="text copied-text hide">[copied]</span>
+                <br>
+            </div>
+        </header>
+    </div>
+
+    <div class="block-center">
+        <header class="tracks" id="tracks">
+            <h1 class="text album-name">Choose an album</h1>
+        </header>
+    </div>
+    
+    <div class="block-right">
+        <header class="albums" id="albums">
+            <h1 class="text albums-head">Albums</h1>
+            <a onclick="set_folder('Богдана и Степана и т.д', true)" class="text album">[Богдана и Степана и т.д]</a>
+            <br>
+            <a onclick="set_folder('иностранное', true)" class="text album">[Иностранное]</a>
+            <br>
+            <a onclick="set_folder('Русское', true)" class="text album">[Русское]</a>
+        </header>
+    </div>
+
+    <script src="../files.js"></script>
+    <script src="../music.js"></script>
+    <script src="../pleer.js"></script>
+</body>
+</html>

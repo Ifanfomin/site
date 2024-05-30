@@ -3,7 +3,8 @@ import json
 import subprocess
 
 
-def sorting(x):
+def sorting(x: str):
+    x = x.lower()
     if x.find(".") < 4 and x[:x.find(".")].isdigit():
         x = "0" * (4 - len(x[:x.find(".")])) + x[:x.find(".")]
     elif x.find(" ") < 4 and x[:x.find(" ")].isdigit():
@@ -35,17 +36,17 @@ def f(dct, name, path, number):
                 tracks.append(name)
     dct["_tracks"] = tracks
     if number == 0:
-        with open("files.json", "w") as files:
-            json.dump({"Base": dct}, files)
+        # with open("files.json", "w") as files:
+        #     json.dump({"Base": dct}, files)
         print(dct)
             # subprocess.run('echo {} | clip'.format(dct), shell=True, check=True)
     # except e:
     #     print(e)
 
 extensions = [".mp3", ".flac", ".ogg", ".wav", ".png", ".jpg", ".jpeg", ".gif", ".m4a", ".py", ".m4v", ".mp4", ".rtf", ".JPG", ".txt", ".cue", ".accurip", ".log", ".m3u", ".dat", ".db", ".bmp"]
-music_extensions = [".mp3", ".flac", ".ogg", ".wav"]
+music_extensions = [".mp3", ".flac", ".ogg", ".wav", ".m4a"]
 
-f({}, "", "Audio", 0)
+f({}, "", "audio", 0)
 
 
 

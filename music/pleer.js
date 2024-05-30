@@ -3,6 +3,9 @@ var pleer = document.getElementById("audio");
 var play_button = document.getElementById("play");
 var pause_button = document.getElementById("pause");
 
+var next_button = document.getElementById("next");
+var prev_button = document.getElementById("prev");
+
 var vol_up_button = document.getElementById("volume_up");
 var vol_down_button = document.getElementById("volume_down");
 var vol_text = document.getElementById("volume_text");
@@ -17,7 +20,10 @@ var duration = pleer.duration;
 var score_step = 10;
 
 var score_time_element = document.getElementById("score_time");
-var score_time = "[00:00]"
+var score_time = "[00:00]";
+
+var posled_button = document.getElementById("posled");
+var random_button = document.getElementById("random");
 
 var copy_song = document.getElementById("copy_song");
 var copied = document.getElementById("copied");
@@ -33,6 +39,24 @@ function pause_track() {
 
 play_button.addEventListener("click", play_track);
 pause_button.addEventListener("click", pause_track);
+
+
+next_button.addEventListener("click", next_track);
+prev_button.addEventListener("click", prev_track);
+
+
+function space_stop_start(e) {
+    if (e.code == "Space") {
+        if (pleer.paused) {
+            play_track();
+        } else {
+            pause_track();
+        }
+    }
+}
+
+document.addEventListener("keydown", space_stop_start);
+// document.addEventListener("", next_track);
 
 
 function volume_up() {
@@ -98,34 +122,43 @@ score_down_button.addEventListener("click", score_down);
 
 function score_time_update() {
     time = Math.floor(pleer.currentTime);
-    var minutes = Math.floor(time / 60);
-    var seconds = Math.floor(time - minutes * 60);
+    var hours = Math.floor(time / 3600);
+    var minutes = Math.floor(time / 60) - 60 * hours;
+    var seconds = Math.floor(time - minutes * 60 - hours * 3600);
     var minutes_val = minutes;
     var seconds_val = seconds;
+
     if (minutes  < 10) {
         minutes_val = "0" + minutes;
     }
     if (seconds < 10) {
         seconds_val = "0" + seconds;
     }
-    score_time = "[" + minutes_val + ":" + seconds_val + "]";
+    if (hours > 0) {
+        score_time = "[" + hours + ":" + minutes_val + ":" + seconds_val + "]";
+    } else {
+        score_time = "[" + minutes_val + ":" + seconds_val + "]";
+    }
     score_time_element.innerHTML = score_time;
 }
 
 pleer.addEventListener("timeupdate", score_time_update);
 
 
-function space_stop_start(e) {
-    if (e.code == "Space") {
-        if (pleer.paused) {
-            play_track();
-        } else {
-            pause_track();
-        }
-    }
+function set_posled_play() {
+    type_of_play = "posled";
+    random_button.setAttribute("class", "text simple-button");
+    posled_button.setAttribute("class", "text simple-button setted");
 }
 
-document.addEventListener("keydown", space_stop_start);
+function set_random_play() {
+    type_of_play = "random";
+    posled_button.setAttribute("class", "text simple-button");
+    random_button.setAttribute("class", "text simple-button setted");
+}
+
+posled_button.addEventListener("click", set_posled_play);
+random_button.addEventListener("click", set_random_play);
 
 
 function copy(str){

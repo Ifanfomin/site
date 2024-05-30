@@ -1,1 +1,3 @@
 tests_and_helps/
+# music/audio/
+.venv
