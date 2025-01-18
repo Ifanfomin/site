@@ -7,13 +7,14 @@ class Player {
         this.medics = 0;
         this.steps = 0;
         this.game_over = false;
+        this.game_win = false;
     }
     take_to_do(key, mp, sc) {
         if ("wsad".indexOf(key) > -1) {
             this.replace_pos(key, mp, sc);
         } else if ("ikjl".indexOf(key) > -1 && this.bolts > 0) {
             this.throw_bolt(key, mp, sc);
-        } else if (key .indexOf("e") > -1 && this.medics > 0) {
+        } else if (key.indexOf("e") > -1 && this.medics > 0) {
             this.medic_use();
         }
     }
@@ -41,7 +42,7 @@ class Player {
             }
         } else if (direct === "l") {
             let distance = (sc.width - this.xpos < 5) ? sc.width - this.xpos : 4;
-            for (let xbpos = this.xpos - 1; xbpos < this.xpos + distance; xbpos++) {
+            for (let xbpos = this.xpos + 1; xbpos < this.xpos + distance; xbpos++) {
                 mp.opening_cell(xbpos, this.ypos, "$");
             }
         }
@@ -49,7 +50,7 @@ class Player {
     }
 
     replace_pos(direct, mp, sc) {
-        mp.player_map[this.ypos][this.xpos] = "0";
+        mp.player_map[this.ypos][this.xpos] = "_";
         if (direct === "w" && this.ypos - 1 > 0) {
             this.ypos -= 1;
         } else if (direct === "s" && this.ypos < sc.height - 1) {
@@ -62,23 +63,23 @@ class Player {
         this.replace_simbol(mp, sc);
     }
 
-    replace_simbol(mp, sc) {
+    replace_simbol(mp) {
         let cell = mp.open_map[this.ypos][this.xpos];
-        mp.open_map[this.ypos][this.xpos] = "0";
+        mp.open_map[this.ypos][this.xpos] = "_";
         mp.player_map[this.ypos][this.xpos] = "@";
         if (cell === "$") {
             this.health -= 1;
             if (this.health === 0) {
                 this.game_over = true;
-                sc.death_screen();
+                // sc.death_screen();
             }
         } else if (cell === "+") {
             this.medics += 1;
         } else if (cell === "¥") {
             this.bolts += 1;
         } else if (cell === "£") {
-            this.game_over = true;
-            sc.win_screen();
+            this.game_win = true;
+            // sc.win_screen();
         }
         this.steps += 1;
     }

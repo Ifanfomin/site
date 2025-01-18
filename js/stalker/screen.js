@@ -1,6 +1,6 @@
 class GameScreen {
     constructor(width, height) {
-        this.screen = document.getElementById("game_screen");
+        this.screen = document.getElementById("map_screen");
         this.height = Math.floor(height / 1.6);
         this.width = width;
         this.help_screen();

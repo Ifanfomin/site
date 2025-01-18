@@ -36,16 +36,20 @@ document.getElementById("heal_button").addEventListener("click", () => {
     game_step("e")
 });
 
-document.getElementById("bolt_button").addEventListener("click", () => {
+document.getElementById("walk_button").addEventListener("click", () => {
     walk_or_bolt = "bolt";
 
-    document.getElementById("bolt_button").setAttribute("class", "my_hidden_button");
-    document.getElementById("walk_button").setAttribute("class", "my_button");
+    document.getElementById("bolt_button").setAttribute("class", "my_button");
+    document.getElementById("walk_button").setAttribute("class", "hidden");
 });
 
-document.getElementById("walk_button").addEventListener("click", () => {
+document.getElementById("bolt_button").addEventListener("click", () => {
     walk_or_bolt = "walk";
 
-    document.getElementById("walk_button").setAttribute("class", "my_hidden_button");
-    document.getElementById("bolt_button").setAttribute("class", "my_button");
+    document.getElementById("walk_button").setAttribute("class", "my_button");
+    document.getElementById("bolt_button").setAttribute("class", "hidden");
 });
+
+document.getElementById("restart_button").addEventListener("click", () => {
+    game_step("restart")
+})
