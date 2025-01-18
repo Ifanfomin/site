@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css2?family=Fira+Code:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap);
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 
 body {
     margin: 0;
@@ -6,13 +6,13 @@ body {
 }
 
 .text {
-    font-family: Fira Code;
+    font-family: "IBM Plex Mono", serif;
     outline: none;
     text-decoration: none;
 }
 
-.my_telegram_github {
-    font-family: sans-serif;
+.my_links {
+    font-family: "IBM Plex Mono", serif;
     font-size: 2em;
     font-weight: 500;
 
@@ -25,13 +25,14 @@ body {
     transform: translate(-50%, -50%)
 }
 
-.my_telegram_github a {
+.my_links a {
     outline: none;
     text-decoration: none;
     color: white;
+    cursor: default;
 }
 
-.my_telegram_github a:hover {
+.my_links a:hover {
     color: rgb(95, 94, 94)
 }
 

@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "IBM Plex Mono", serif;
+    @media (width <= 680px) {
+        font-size: 33px;
+    }
+}
+
+.background {
+    background: black;
+    display: flex;
+    min-height: 100vh;
+}
+
+.table {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 80%;
+    margin: auto;
+    /*background-color: darkslategrey;*/
+}
+
+.table p {
+    color: white;
+    cursor: default;
+}
+
+.table a {
+    outline: none;
+    text-decoration: none;
+    color: white;
+    cursor: default;
+}
+
+.table a:hover {
+    color: rgb(95, 94, 94);
+}
+
+.my_hidden_button {
+    display: none;
+}
+
+.my_button {
+    display: inline-block;
+}
+
+.my_button:hover {
+    color: grey;
+}
+
+.my_button:active {
+    color: rgb(95, 94, 94);
+}
