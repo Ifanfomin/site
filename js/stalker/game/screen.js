@@ -28,7 +28,7 @@ class GameScreen {
             }
             text += "<br>";
         }
-        text += "Health: " + pl.health + "<br>";
+        text += "Health: " + pl.health + " " + "Mode: " + settings.mode_name + "<br>";
         text += "Medics: " + pl.medics + "<br>";
         text += "Bolts: " + pl.bolts + "<br>";
         this.screen.innerHTML = text;
@@ -42,7 +42,9 @@ class GameScreen {
             }
             text += "<br>";
         }
-        text += "Health: " + pl.health + "<br>";
+
+        text += "Health: " + pl.health + settings.space.slice(0, settings.space.length - 9 - 6 - settings.mode_name.length);
+        text += "Mode: " + settings.mode_name + "<br>";
         text += "Medics: " + pl.medics + "<br>";
         text += "Bolts: " + pl.bolts + "<br>";
         this.screen.innerHTML = text;

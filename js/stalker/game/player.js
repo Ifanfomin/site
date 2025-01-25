@@ -20,8 +20,10 @@ class Player {
     }
 
     medic_use() {
-        this.health += 1;
-        this.medics -= 1;
+        if (this.health < 5) {
+            this.health += 1;
+            this.medics -= 1;
+        }
     }
 
     throw_bolt(direct, mp, sc) {
@@ -60,10 +62,10 @@ class Player {
         } else if (direct === "d" && this.xpos + 1 < sc.width - 1) {
             this.xpos += 1;
         }
-        this.replace_simbol(mp, sc);
+        this.replace_symbol(mp, sc);
     }
 
-    replace_simbol(mp) {
+    replace_symbol(mp) {
         let cell = mp.open_map[this.ypos][this.xpos];
         mp.open_map[this.ypos][this.xpos] = "_";
         mp.player_map[this.ypos][this.xpos] = "@";

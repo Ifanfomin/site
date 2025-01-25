@@ -1,11 +1,34 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 
+:root {
+    --biggest-font-size: 2rem;
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1rem;
+    --normal-font-size: 1.8rem;
+    --small-font-size: .813rem;
+    --smaller-font-size: .75rem;
+}
+
+@media screen and (min-width: 992px) {
+    :root {
+        --biggest-font-size: 4rem;
+        --h1-font-size: 2.25rem;
+        --h2-font-size: 1.5rem;
+        --h3-font-size: 1.25rem;
+        --normal-font-size: 1rem;
+        --small-font-size: .875rem;
+        --smaller-font-size: .813rem;
+    }
+}
+
 body {
     margin: 0;
     padding: 0;
-    font-family: "IBM Plex Mono", serif;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: var(--normal-font-size);
     /*@media (width <= 680px) {*/
-    /*    font-size: 33px;*/
+    /*    `font-size`: 33px;*/
     /*}*/
 }
 
@@ -52,6 +75,16 @@ body > * {
     cursor: default;
 }
 
+.table h1 {
+    color: white;
+    cursor: default;
+}
+
+.table h3 {
+    color: white;
+    cursor: default;
+}
+
 .table a {
     outline: none;
     text-decoration: none;
@@ -61,6 +94,23 @@ body > * {
 
 .table a:hover {
     color: rgb(95, 94, 94);
+}
+
+.menu p {
+    color: white;
+    font-size: var(--biggest-font-size);
+}
+
+.menu a {
+    font-size: var(--biggest-font-size);
+}
+
+.mode p {
+    font-size: var(--biggest-font-size);
+}
+
+.story p {
+    font-size: var(--biggest-font-size);
 }
 
 .hidden {

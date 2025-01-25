@@ -3,10 +3,26 @@ function random_choice(list) {
     return list[choice];
 }
 
+function update_cells(h) {
+    if (settings.mode === 0 && h % Math.floor(sc.height / 4) === 0) {
+        settings.cells_vars.push("$");
+    }
+    else if (settings.mode === 1 && h % Math.floor(sc.height / 6) === 0) {
+        settings.cells_vars.push("$");
+    }
+    else if (settings.mode === 2 && h % Math.floor(sc.height / 8) === 0) {
+        settings.cells_vars.push("$");
+    }
+    else if (settings.mode === 3 && h % Math.floor(sc.height / 12) === 0) {
+        settings.cells_vars.push("$");
+    }
+}
+
 class Maps {
     constructor(sc, pl) {
         this.close_map_gen(sc, pl);
         this.open_map_gen(sc);
+        settings.cells_vars = ["+", "¥", "¥", "0", "0"];
     }
 
     close_map_gen(sc, pl) {
@@ -21,7 +37,7 @@ class Maps {
                 }
             }
         }
-        console.log(close_map);
+        // console.log(close_map);
         this.player_map = close_map;
     }
 
@@ -29,18 +45,18 @@ class Maps {
         let open_map = [];
         for (let h = 0; h < sc.height; h++) {
             open_map.push([]);
+            update_cells(h);
             for (let w = 0; w < sc.width; w++) {
                 if (h === sc.height - 1 && 0 < w < sc.width - 1) {
                     open_map[h].push("£");
                 } else if (h === 1 && w === Math.floor((sc.width - 1) / 2) || h === 0 || w === 0 || h === sc.height - 1 || w === sc.width - 1) {
                     open_map[h].push("0");
                 } else {
-                    let to_choice = ["+", "$", "$", "$", "$", "¥", "¥", "0", "0"];
-                    open_map[h].push(random_choice(to_choice));
+                    open_map[h].push(random_choice(settings.cells_vars));
                 }
             }
         }
-        console.log(open_map);
+        // console.log(open_map);
         this.open_map = open_map;
     }
 

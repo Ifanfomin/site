@@ -6,13 +6,13 @@ body {
 }
 
 .text {
-    font-family: "IBM Plex Mono", serif;
+    font-family: "IBM Plex Mono", monospace;
     outline: none;
     text-decoration: none;
 }
 
 .my_links {
-    font-family: "IBM Plex Mono", serif;
+    font-family: "IBM Plex Mono", monospace;
     font-size: 2em;
     font-weight: 500;
 

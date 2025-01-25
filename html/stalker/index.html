@@ -8,7 +8,93 @@
 <body>
 <div class="background">
     <div class="table">
-        <ul>
+        <ul id="menu_screen" class="menu">
+            <li>
+                <h1>Stalker</h1>
+                <h3 id="mode_name">Mode: Easy</h3>
+                <p class="my_button" id="start_button">
+                    .____.<br>
+                    |lets|<br>
+                    |-GO-|<br>
+                    |____|<br>
+                </p>
+                <p class="my_button" id="mode_button">
+                    .____.<br>
+                    |----|<br>
+                    |mode|<br>
+                    |____|<br>
+                </p>
+                <p class="my_button" id="story_button">
+                    .____.<br>
+                    |stor|<br>
+                    |y---|<br>
+                    |____|<br>
+                </p>
+                <br>
+                <br>
+                <a class="my_button" id="exit_button" href="../../">
+                    .____.<br>
+                    |----|<br>
+                    |Exit|<br>
+                    |____|<br>
+                </a>
+            </li>
+        </ul>
+        <ul id="mode_screen" class="hidden">
+            <li>
+                <h1>Modes</h1>
+                <p class="my_button" id="easy_button">
+                    .____.<br>
+                    |----|<br>
+                    |easy|<br>
+                    |____|<br>
+                </p>
+                <p class="my_button" id="medium_button">
+                    .____.<br>
+                    |medi|<br>
+                    |um--|<br>
+                    |____|<br>
+                </p>
+                <p class="my_button" id="hard_button">
+                    .____.<br>
+                    |----|<br>
+                    |hard|<br>
+                    |____|<br>
+                </p>
+                <p class="my_button" id="violence_button">
+                    .____.<br>
+                    |viol|<br>
+                    |ence|<br>
+                    |____|<br>
+                </p>
+                <br>
+                <p class="my_button" id="mode_menu_button">
+                    .____.<br>
+                    |----|<br>
+                    |menu|<br>
+                    |____|<br>
+                </p>
+            </li>
+        </ul>
+        <ul id="story_screen" class="hidden">
+            <li>
+                <h1>Предыстория:</h1>
+                <p>По некоторым наводкам на Юге есть хорошая добыча, но по пути ты наткнулся на особо опасную зону, обходить которую кайне долго, да ещё и по болотам. Ты решил во что бы то ни стало попасть на другую сторону. </p>
+                <p>У тебя всегда с собой наготове есть несколько болтов, но сейчас боюсь их не хватит...</p>
+                <p>Похоже придётся найти ещё, уже внутри самой зоны. Для их использования переключись на них нажав кнопку 'walk'</p>
+                <p>Может ещё повезёт на аптечку, кто знает...</p>
+                <p class="my_button" id="story_menu_button">
+                    .____.<br>
+                    |----|<br>
+                    |menu|<br>
+                    |____|<br>
+                </p>
+            </li>
+        </ul>
+        <ul id="game_screen" class="hidden">
+            <li>
+                <h1>Stalker</h1>
+            </li>
             <li id="map">
                 <p id="map_screen"></p>
             </li>
@@ -35,6 +121,24 @@
                     .____.<br>
                     |----|<br>
                     |heal|<br>
+                    |____|<br>
+                </p>
+                <p class="my_button invisible">
+                    .____.<br>
+                    |____|<br>
+                    |____|<br>
+                    |____|<br>
+                </p>
+                <p class="my_button invisible">
+                    .____.<br>
+                    |____|<br>
+                    |____|<br>
+                    |____|<br>
+                </p>
+                <p class="my_button" id="restart_button">
+                    .____.<br>
+                    |rest|<br>
+                    |art_|<br>
                     |____|<br>
                 </p>
                 <br>
@@ -68,20 +172,23 @@
                     |____|<br>
                     |____|<br>
                 </p>
-                <p class="my_button" id="restart_button">
+                <p class="my_button" id="game_menu_button">
                     .____.<br>
-                    |rest|<br>
-                    |art_|<br>
+                    |----|<br>
+                    |menu|<br>
                     |____|<br>
                 </p>
             </li>
         </ul>
     </div>
 </div>
-<script src="../../js/stalker/maps.js"></script>
-<script src="../../js/stalker/player.js"></script>
-<script src="../../js/stalker/screen.js"></script>
-<script src="../../js/stalker/handler.js"></script>
-<script src="../../js/stalker/script.js"></script>
+<script src="../../js/stalker/game/maps.js"></script>
+<script src="../../js/stalker/game/player.js"></script>
+<script src="../../js/stalker/game/screen.js"></script>
+<script src="../../js/stalker/config.js"></script>
+<script src="../../js/stalker/game/game_main.js"></script>
+<script src="../../js/stalker/game/handler.js"></script>
+<script src="../../js/stalker/menu/handler.js"></script>
+<script src="../../js/stalker/mode/handler.js"></script>
 </body>
 </html>

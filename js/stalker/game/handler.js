@@ -51,5 +51,5 @@ document.getElementById("bolt_button").addEventListener("click", () => {
 });
 
 document.getElementById("restart_button").addEventListener("click", () => {
-    game_step("restart")
+    game_step("restart");
 })
