@@ -1,10 +1,13 @@
 let settings = {
     width: 40,
     height: 32,
-    cells_vars: ["+", "¥", "¥", "0", "0"],
+    cells_vars: [],  // + ¥ 0 $
     mode: 0,
     mode_name: "Easy"
 };
+
+set_cells_vars();
+
 
 let space = "";
 for (let i = 0; i < settings.width; i++) {

@@ -23,3 +23,11 @@ document.getElementById("hard_button").addEventListener("click", () => {
 document.getElementById("violence_button").addEventListener("click", () => {
     set_mode(3, "Violence");
 });
+
+document.getElementById("kill_me_button").addEventListener("click", () => {
+    set_mode(4, "KILL ME");
+});
+
+document.getElementById("classic_button").addEventListener("click", () => {
+    set_mode(5, "Classic");
+});

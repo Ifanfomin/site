@@ -3,6 +3,15 @@ function random_choice(list) {
     return list[choice];
 }
 
+function set_cells_vars() {
+    if (0 <= settings.mode && settings.mode <= 4) {
+        settings.cells_vars = ["+", "¥", "¥", "0", "0"];
+    }
+    else if (settings.mode === 5) {
+        settings.cells_vars = ["+", "$", "$", "$", "$", "¥", "¥", "0", "0"]
+    }
+}
+
 function update_cells(h) {
     if (settings.mode === 0 && h % Math.floor(sc.height / 4) === 0) {
         settings.cells_vars.push("$");
@@ -16,13 +25,20 @@ function update_cells(h) {
     else if (settings.mode === 3 && h % Math.floor(sc.height / 12) === 0) {
         settings.cells_vars.push("$");
     }
+    else if (settings.mode === 4) {
+        settings.cells_vars.push("$");
+        settings.cells_vars.push("$");
+        settings.cells_vars.push("$");
+    }
+    if (settings.mode === 5) {
+
+    }
 }
 
 class Maps {
     constructor(sc, pl) {
         this.close_map_gen(sc, pl);
         this.open_map_gen(sc);
-        settings.cells_vars = ["+", "¥", "¥", "0", "0"];
     }
 
     close_map_gen(sc, pl) {
