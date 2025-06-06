@@ -1,1 +1,0 @@
-python3 make_files_recurtion.py | xclip -sel clip
